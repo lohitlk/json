@@ -9,7 +9,7 @@ async function getapi(url, seasonnum, epinum) {
         bigbang = data
         var output;
 
-        let theory1 = (seasonnum, epinum, bigbang) => {
+        let task1 = (seasonnum, epinum, bigbang) => {
 
                 let seasonin = parseInt(seasonnum)
                 let epiin = parseInt(epinum)
@@ -52,7 +52,7 @@ async function getapi(url, seasonnum, epinum) {
                 console.log(output)
         }
         
-        theory1(seasonnum, epinum, bigbang)
+        task1(seasonnum, epinum, bigbang)
 
 
 
@@ -68,7 +68,7 @@ async function getapi1(url, epinum) {
         var data = await response.json();
         bigbang = data
         let output = "false";
-        let theory2 = (eid, bigbang) => {
+        let task2 = (eid, bigbang) => {
                 let len2 = bigbang._embedded.episodes.length;
 
                 epobj =
@@ -134,7 +134,7 @@ async function getapi1(url, epinum) {
 
 
         for (let i = 0; i < episodeid.length; i++) {
-                theory2(episodeid[i], bigbang)
+                task2(episodeid[i], bigbang)
         }
 
 
@@ -155,7 +155,7 @@ async function getapi2(url, epname) {
 
 
 
-        let theory3 = (epname, bigbang) => {
+        let task3 = (epname, bigbang) => {
 
                 let output;
                 var visibil = document.getElementById("cont");
@@ -200,7 +200,7 @@ async function getapi2(url, epname) {
 
 
         }
-        theory3(epname, bigbang)
+        task3(epname, bigbang)
 }
 
 function type1() {
