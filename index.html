@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .content {
+            padding: 20px;
+            background-color: bisque;
+            height: auto;
+            color: crimson;
+            text-decoration: none;
+        }
+
+        .data {
+            position: absolute;
+            top: -90px;
+
+        }
+
+        .cont {
+            padding: 10px;
+            padding-top: 35px;
+        }
+
+        input[type=text] {
+            border: 4px solid #8842d5;
+            border-radius: 5px;
+        }
+
+
+        @media (max-width: 480px) {
+            .data {
+                top: 50px;
+                width: auto;
+                z-index: 1;
+            }
+
+            .cont {
+                position: absolute;
+                padding-top: 220px;
+            }
+
+        }
+
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="col-sm-12 col-md-4">
+        <div class="col-sm-4 col-md-6 content">
+            <a href="#" id="byname">Search by episode name</a>
+        </div>
+        <div class="col-sm-4 col-md-6 content">
+            <a href="#" id="seep">Search by season and episode</a>
+        </div>
+        <div class="col-sm-4 col-md-6 content">
+            <a href="#" id="epis">Search by Episodes ID</a>
+        </div>
+    </div>
+
+    <div class="container col-sm-6 col-md-8">
+        <div style="visibility: hidden;" class="data" id="seaepi">
+            <label for="season">Enter season number:</label>
+            <input type="text" name="season" id="ses"><br>
+            <label for="episode">Enter episode number:</label>
+            <input type="text" name="episode" id="epi"><br />
+            <input type="submit" class="button" name="submit" id="sub" value="Search by session and episode"
+                onclick="type1()">
+            <br /><br /><br />
+        </div>
+        <div id="epiid" class="data" style="visibility: hidden;">
+            <label for="epid">Enter Episode Id:</label><br />
+            <input type="text" name="epid" id="epid"><br />
+            <input type="submit" class="button" value="Search by episode id" onclick="type2()">
+        </div>
+        <div id="epname" class="data" style="visibility: hidden;">
+            <label for="epname">Enter Episode Name:</label><br />
+            <input type="text" name="epname" id="ename"><br /><br />
+
+            <input type="submit" class="button" value="Search by episode Name" onclick="type3()">
+
+        </div>
+
+        <div id='cont' class="cont" style="visibility: hidden;" class="col-md-4 col-sm-8">
+
+        </div>
+    </div>
+    <script>
+        let se = document.getElementById("seaepi");
+        let eid = document.getElementById("epiid")
+        let byname = document.getElementById("epname");
+        document.getElementById("byname").addEventListener("click", function () {
+            if (byname.style.visibility === 'hidden') {
+                byname.style.visibility = 'visible';
+                se.style.visibility = "hidden"
+                eid.style.visibility = "hidden"
+            }
+            else {
+                byname.style.visibility = 'hidden';
+            }
+        })
+        document.getElementById("seep").addEventListener("click", function () {
+            if (se.style.visibility === 'hidden') {
+                byname.style.visibility = 'hidden';
+                se.style.visibility = "visible"
+                eid.style.visibility = "hidden"
+            }
+            else {
+                se.style.visibility = 'hidden';
+            }
+        })
+        document.getElementById("epis").addEventListener("click", function () {
+            if (eid.style.visibility === 'hidden') {
+                byname.style.visibility = 'hidden';
+                se.style.visibility = "hidden"
+                eid.style.visibility = "visible"
+            }
+            else {
+                eid.style.visibility = 'hidden';
+            }
+        })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
